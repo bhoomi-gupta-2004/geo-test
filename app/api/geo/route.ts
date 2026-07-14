@@ -1,5 +1,11 @@
-export async function GET(request: Request) {
-  const headers = Object.fromEntries(request.headers.entries());
+import { ipAddress, geolocation } from "@vercel/functions";
 
-  return Response.json(headers);
+export async function GET(request: Request) {
+  const ip = ipAddress(request) || "127.0.0.1";
+  const geo = geolocation(request);
+
+  return Response.json({
+    ip,
+    geo,
+  });
 }
