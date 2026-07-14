@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@maxmind/geoip2-node": "^7.0.0",
     "@vercel/functions": "^3.7.5",
     "next": "16.2.10",
     "react": "19.2.4",
