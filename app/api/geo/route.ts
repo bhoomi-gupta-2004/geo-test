@@ -1,12 +1,5 @@
-import { geolocation } from "@vercel/functions";
-
 export async function GET(request: Request) {
-  const geo = geolocation(request);
+  const headers = Object.fromEntries(request.headers.entries());
 
-  return Response.json({
-    country: geo.country,
-    region: geo.region,
-    city: geo.city,
-    postalCode: geo.postalCode,
-  });
+  return Response.json(headers);
 }
